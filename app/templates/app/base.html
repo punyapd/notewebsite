@@ -1,0 +1,170 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static "app/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "app/js/bootstrap.min.js" %}">
+
+    <!--FontAwesome CSS-->
+    <link rel="stylesheet" href="{% static 'app/css/all.min.css' %}">
+    <!-- css style -->
+    <link rel="stylesheet" href="{% static "app/css/style.css" %}">
+
+    <!-- extra css-->
+    {% block extracss %}{% endblock extracss %}
+    
+    <!-- Main JS -->
+    <link rel="stylesheet" href="{% static 'app/js/main.js' %}">
+
+    <title></title>
+  </head>
+  <body>
+      <!-- ======================NAVBAR============================================== -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-danger fixed-top " id = "navbar_top"> 
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">About</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Categories
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li>
+                    <a href = "{% url 'courses' %}" class ="dropdown-item">
+                      Courses
+                    </a>
+                    <ul class="submenu dropdown-menu">
+                      <li><a href="" class="dropdown-item">Bsc.Csit</a></li>
+                      <li><a href="#" class="dropdown-item">BCA</a></li>
+                      <li><a href="#" class="dropdown-item">BIT</a></li>
+
+                    </ul>
+                    </li><hr>
+                  <li><a class="dropdown-item" href="{% url 'programming' %}">Programming</a>
+                    <ul class="submenu dropdown-menu">
+                       <li><a href="#" class="dropdown-item">HTML</a></li>
+                       <li><a href="#" class="dropdown-item">CSS</a></li>
+
+                       <li><a href="#" class="dropdown-item">JAVASCRIPT</a></li>
+
+                       <li><a href="#" class="dropdown-item">JQUERY</a></li>
+                       <li><a href="#" class="dropdown-item">PYTHON</a></li>
+                       <li><a href="#" class="dropdown-item">SQL</a></li>
+                       <li><a href="#" class="dropdown-item">BOOTSTRAP5</a></li>
+                       <li><a href="#" class="dropdown-item">DJANGO</a></li>
+                       <li><a href="#" class="dropdown-item">PHP</a></li>
+
+                    </ul>
+                  </li><hr>
+                  <li><a class="dropdown-item" href="{% url 'sports' %}">Sports News</a></li><hr>
+                  
+                 
+
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'tech-news' %}">Tech News</a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link" href="https://Nepalijaankari.blogspot.com/">Blog</a>
+              </li>
+
+               <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+              </li>
+              
+            </ul>
+
+            <div class="logo">
+                <img src="{% static "app/image/logo.png" %}" alt="">
+
+            </div>
+
+            <!-- <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-light" type="submit">Search</button>
+            </form> -->
+
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              {% if request.user.is_authenticated %}
+               <li class="nav-item dropdown mx-2">
+                  <a class="nav-link dropdown-toggle text-white" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Hi! {{request.user.username|capfirst}}
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                    <li><a class="dropdown-item" href="">Profile</a></li>
+                    <li><a class="dropdown-item" href="{% url 'passwordchange' %}">Change Password</a></li>
+                    <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                    
+                  </ul>
+                </li>
+                {% else %}
+                <li class="nav-item mx-2">
+                 <a href="{% url 'login' %}" class="nav-link text-white">Login</a>
+                </li>
+                <li class="nav-item mx-2">
+                 <a href="{% url 'customerregistration' %}" class="nav-link text-white">SignUp</a>
+                </li>
+                {% endif %}
+              </ul>
+          </div>
+        </div>
+        
+      </nav>
+      <!-- ===============HOME PAGE================== -->
+      {% block content %}{% endblock content %}
+      {% block carousel %}{% endblock carousel %}
+      {% block three-boxes %}{% endblock three-boxes %}
+
+      <!-- ==================COURSES PAGE================== -->
+      {% block courses %}{% endblock courses %}
+
+      <!-- ==================BSC CSIT================== -->
+      {% block bsccsit %}{% endblock bsccsit %}
+
+      <!-- ==================SEMESTER================== -->
+      {% block semester %}{% endblock semester %}
+
+      <!-- ======================SUBJECT==================== -->
+      {% block subject %}{% endblock subject %}
+      {% block blank-box %}{% endblock blank-box %}
+
+      <!-- ======================TECH NEWS==================== -->
+      {% block tech-news %}{% endblock tech-news %}
+
+      {% block main-part %}{% endblock main-part %}
+
+      <!-- =====================LOGIN================= -->
+      {% block login %}{% endblock login %}
+
+      <!-- ==========================REGISTRATION=================== -->
+      {% block registration %}{% endblock registration %}
+
+      <!-- ======================password Change======================= -->
+      {% block passwordchange %}{% endblock passwordchange %}
+      
+      <!-- =========================Password change done================== -->
+      {% block passwordchangedone %}{% endblock passwordchangedone %}
+      
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script src="{% static 'app/js/all.min.js' %}"></script>
+    
+  </body>
+</html>

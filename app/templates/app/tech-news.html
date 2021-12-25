@@ -1,0 +1,29 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block tech-news %}
+    <hr>
+    
+    <div class="container">
+        <div class="row" style="margin-top:60px;">
+            {% for tech in tech_news %}
+            <div class="card" style="margin-top: 10px;">
+                <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="{{tech.image.url}}" alt="" class="card-img-top">
+                </div>
+                
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{tech.title}}</h5>
+                        <p class="card-text">{{tech.detail}}</p>
+                        <a href="{% url 'tech-detail' tech.id %}"><p class="btn btn-outline-danger" style="border-radius:20px 0px 20px 20px; margin-top: 10px; background-color: #DC3545 !important; color: white;">Read Full</p></a>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock tech-news %}

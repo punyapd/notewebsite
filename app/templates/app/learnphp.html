@@ -1,0 +1,59 @@
+{% extends 'app/base.html' %}
+{% block content %}
+    <div class="row">
+        <div class="col-sm-2">  
+            <div class="sidebar bg-light">
+             <div class="segment">
+                <h6 class="ms-2">PHP TUTORIAL</h6>
+                <div class="chapters">
+                    <a href="{% url 'intro' %}">HTML Introduction</a><br>
+                    <a href="#">HTML Getting Started</a><br>
+                    <a href="#">HTML Elements</a><br>
+                    <a href="#">HTML Attributes</a><br>
+                    <a href="#">HTML Headings</a><br>
+                    <a href="#">HTML Paragraphs</a><br>
+                    <a href="#">HTML Links</a><br>
+                    <a href="#">HTML  Formatting</a><br>
+                    <a href="#">HTML Styles</a><br>
+                    <a href="#">HTML Images</a><br>
+                    <a href="#">HTML Tables</a><br>
+                    <a href="#">HTML Lists</a><br>
+                    <a href="#">HTML Forms</a><br>
+                    <a href="#">HTML Iframes</a><br>
+                </div>
+             </div>
+
+             <div class="segment mt-3">
+                <h6 class="ms-2">HTML ADVANCED</h6>
+                 <div class="chapters">
+                    <a href="#">HTML Doctypes</a><br>
+                    <a href="#">HTML Layout</a><br>
+                    <a href="#">HTML Head</a><br>
+                    <a href="#">HTML Meta</a><br>
+                    <a href="#">HTML Script</a><br>
+                    <a href="#">HTML Enitites</a><br>
+                    <a href="#">HTML URL</a><br>
+                    <a href="#">HTML  URL encode</a><br>
+                    <a href="#">HTML Validation</a><br>
+                    <a href="#">HTML Canvas</a><br>
+                    <a href="#">HTML Audio</a><br>
+                    <a href="#">HTML Videos</a><br>
+                    <a href="#">HTML You Tube</a><br>
+                    <a href="#">HTML Plugins</a><br>
+                </div>
+             </div>
+
+             <div class="segment mt-3">
+                <h6 ms-2>HTML REFERENCES</h6>
+             </div>
+            </div>
+        
+        </div>
+        <div class="col-sm-8">
+           <section id ="maincontent"></section>
+        </div>
+
+            
+        <div class="col-sm-2 bg-dark">recommendation or ads</div>
+    </div>
+{% endblock content %}

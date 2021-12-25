@@ -1,0 +1,23 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block bsccsit %}
+    <div class="bsc-csit" style="margin-top:80px; padding-top:20px;">
+        <div class="container">
+            <div class="row" >
+                {% for s in semester %}   
+                
+                <div class="col-md-4">
+                    <div class="bsccsit-box">
+                        <h3 style="color: black;">{{s.sem}}</h3>
+                        <ul>
+                            {% for sub in s.subject_set.all %}
+                            <li>{{forloop.counter}}.<a href="{% url 'modelquestions' sub.id %}"> {{sub.subject_name}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>  
+                </div>
+            {% endfor %} 
+            </div>
+        </div>
+    </div>
+{% endblock bsccsit %}

@@ -1,0 +1,55 @@
+{% extends 'app/subject-base.html' %}
+{% load static %}
+{% block model %}
+<div class="subject">
+    <div class="row" style="margin-top: 60px; padding-bottom: 20px;">
+        <div class="col-md-6 col-lg-2">
+            <div class="subject-box">
+                <a href="{% url 'modelquestions' id %}"><button class="btn btn-danger">TU Model Questions</button></a>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-2">
+            <div class="subject-box">
+                <a href="{% url 'unitwisequestions' id %}"><button class="btn btn-danger">Unitwise Questions</button></a>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-2">
+            <div class="subject-box">
+                <a href="{% url 'refrenced-books' id %}"><button class="btn btn-danger" style="background-color: #DC3545;">Refrenced Books</button></a>   
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-2">
+            <div class="subject-box">
+                <a href=""><button class="btn btn-danger">HandWritten Notes</button></a>  
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-2">
+            <div class="subject-box">
+                <a href=""><button class="btn btn-danger">Practial Lab Sheets</button></a>  
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-2">
+            <div class="subject-box">
+                <a href=""><button class="btn btn-danger">Micro Syllabus</button></a>  
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="refrenced-books">
+        <div class="container">
+            <div class="row" style="padding-top: 20px;">
+                <h1>Books List</h1>
+                    <hr>
+                {% for que in question %}
+                <div class="col-md-6 col-sm-6">
+                    
+                    <h3>{{forloop.counter}}. {{que.book_name}}</h3>
+                    {% comment %} <a href="{{que.book.url}}"><i class="fas fa-download" style="font-size: 30px;"></i></a> {% endcomment %}
+                    <a href="{{que.book.url}}"><button class="btn btn-danger" style="background-color:#DC3545;">Click Download</button></a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock model %}

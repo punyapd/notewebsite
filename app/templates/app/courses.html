@@ -1,0 +1,31 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block courses %}
+
+    <!-- =============== for box =============== -->		
+	<section class="for-box" style="margin-top: 70px;">
+	 <div class="container-fluid">
+		<div class="row" >
+			{% for c in course %}
+			<div class="col-xs-12 col-sm-6 col-md-3 wow rotateInDownLeft animated" data-wow-delay=".1s">
+				<div class="clr1">				
+				<h2>
+					{{c.faculty}}
+				</h2>
+				</div>
+				<div class="wbox">
+					<a class="btn btn-danger" href="{% url 'semester' c.id %}">Click for Course</a>
+					<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Vestibulum ac vehicula leo dulam 
+nullam rhoncus tortor at dignissim vehicula.</p>
+					<a href="#" class="clr1-a" >+</a>
+				</div>
+				
+			</div>
+			{% endfor %}
+		</div>
+	 </div>
+	</section>
+	
+
+{% endblock courses %}
+

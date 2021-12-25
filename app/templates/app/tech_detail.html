@@ -1,0 +1,83 @@
+{% extends 'app/subject-base.html' %}
+{% load static %}
+{% block main-part %}
+<main class="container mt-3 mb-5" style="margin-top: 26px !important;">
+	<!-- featured news -->
+	<div class="row my-3">
+		<!-- Left -->
+		<div class="col-md-8">
+			<div class="card mb-3">
+                <img src="{{tech.image.url}}" class="card-img-top" alt="{{tech.title}}">
+			  <div class="card-body">
+			    <h5 class="card-title">{{tech.title}}</h5>
+			    <hr/>
+			    <p class="card-text">{{tech.detail}}</p>
+			  </div>
+			  <div class="card-footer">
+			  <a href="">{{news.category.title}}</a>
+			  </div>
+			</div>
+
+			<!-- Comments -->
+			<div class="card my-4">
+				<h6 class="card-header fw-bold" style="font-size:25px;">Add Comment</h6>
+				<div class="card-body">
+					{% for message in messages %}
+					<p class="text-success">{{message}}</p>
+					{% endfor %}
+					<form method="post" action="/detail/{{news.id}}">
+						{% csrf_token %}
+						<div class="form-group row">
+							<label class="col-md-2">Name<span class="text-danger">*</span></label>
+							<div class="col-md-10">
+								<input type="text" name="name" required class="form-control" />
+							</div>
+						</div>
+						<div class="form-group row mt-5">
+							<label class="col-md-2">Email<span class="text-danger">*</span></label>
+							<div class="col-md-10">
+								<input type="temailext" name="email" required class="form-control" />
+							</div>
+						</div>
+						<div class="form-group row mt-5 mb-3">
+							<label class="col-md-2">Comment<span class="text-danger">*</span></label>
+							<div class="col-md-10">
+								<textarea class="form-control" name="message" required></textarea>
+							</div>
+						</div>
+						<input type="Submit" class="btn btn-outline-danger" style="background-color: #DC3545 !important; color: white;">
+					</form>
+				</div>
+			</div>
+			<!-- Previous Comments -->
+			<div class="card my-4">
+				<h6 class="card-header">Comments</h6>
+				<div class="card-body">
+					{% for comment in comments %}
+					<blockquote class="blockquote text-right">
+					  <p class="mb-0">{{comment.comment}}</p>
+					  <footer class="blockquote-footer">{{comment.name}} <cite title="Source Title">{{comment.email}}</cite></footer>
+					</blockquote>
+					<hr/>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+		<!-- Related News -->
+		<div class="col-md-4">
+			<h3 class="mb-3 border-bottom pb-1">From this Category</h3>
+			<!-- Category Box -->
+			{% for lt in last_three %}
+			<div class="card mb-3 shadow">
+                <img src="{{lt.image.url}}" class="card-img-top" alt="{{lt.title}}">
+			  <div class="card-body">
+			    <h5 class="card-title">{{lt.title}}</h5>
+			    <hr/>
+			    <p class="card-text"><a href="{% url 'tech-detail' lt.id %}" class="btn btn-sm btn-outline-danger" style="background-color: #DC3545 !important; color: white;">Read Full</a></p>
+			  </div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</main>
+{% endblock %}
