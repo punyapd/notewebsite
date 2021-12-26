@@ -1,34 +1,67 @@
 {% extends 'app/base.html' %}
 {% load static %}
 {% block passwordchangedone %}
-<div class="about">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <div class="about-img">
-                    <img src="{% static 'app/image/about.jpg' %}" alt="Image">
-                </div>
+    <div class="container mb-4" style="margin-top: 83px; ">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{% static 'app/image/about.jpg' %}" alt="" class="img-fluid">
             </div>
-            <div class="col-lg-6">
-                <div class="section-header text-left">
-                    <p>About Us</p>
-                    <h2>car washing and detailing</h2>
-                </div>
-                <div class="about-content">
-                    <p>
-                        Lorem ipsum dolor sit amet elit. In vitae turpis. Donec in hendre dui, vel blandit massa. Ut vestibu suscipi cursus. Cras quis porta nulla, ut placerat risus. Aliquam nec magna eget velit luctus dictum
-                    </p>
-                    <ul>
-                        <li><i class="far fa-check-circle"></i>Seats washing</li>
-                        <li><i class="far fa-check-circle"></i>Vacuum cleaning</li>
-                        <li><i class="far fa-check-circle"></i>Interior wet cleaning</li>
-                        <li><i class="far fa-check-circle"></i>Window wiping</li>
-                    </ul>
-                    <a class="btn btn-custom" href="">Learn More</a>
-                </div>
+            <div class="col-md-6">
+                <h1 class="text-center mb-4" style="color: #DC3545;">About Us</h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore adipisci voluptatem nam ipsam, tempore, aliquam delectus officiis voluptatibus recusandae eaque impedit sed debitis mollitia numquam quo eos dolor? Fuga, est!</p>
             </div>
         </div>
     </div>
-</div>
+
+    <div class="container">
+        <div class="row">
+            <h1 class="text-center" style="color: #DC3545;">Our Services</h1>
+            
+            <div class="col-md-3 mt-4">
+                <div class="text-center"><i class="fas fa-volleyball-ball" style="font-size: 50px; color: #DC3545;"></i></div>
+                <h3 style="color: #DC3545;" class="mb-2 mt-2">Girl You Amazing?</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam eveniet hic perspiciatis quam sit! Sed perferendis veniam fugiat rem eos iusto, atque nisi dignissimos eius? Eos corporis dolor consectetur laboriosam.</p>
+            </div>
+            <div class="col-md-1 mt-4"></div>
+            <div class="col-md-3 mt-4">
+                <div class="text-center"><i class="fas fa-volleyball-ball" style="font-size: 50px; color: gray;"></i></div>
+                <h3 style="color: #DC3545;" class="mb-2 mt-2">Girl You Amazing?</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam eveniet hic perspiciatis quam sit! Sed perferendis veniam fugiat rem eos iusto, atque nisi dignissimos eius? Eos corporis dolor consectetur laboriosam.</p>
+            </div>
+            <div class="col-md-1 mt-4"></div>
+            <div class="col-md-3 mt-4">
+                <div class="text-center"><i class="fas fa-volleyball-ball" style="font-size: 50px; color: #DC3545;"></i></div>
+                <h3 style="color: #DC3545;" class="mb-2 mt-2">Girl You Amazing?</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam eveniet hic perspiciatis quam sit! Sed perferendis veniam fugiat rem eos iusto, atque nisi dignissimos eius? Eos corporis dolor consectetur laboriosam.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Start -->
+    <div class="footer wow fadeIn" data-wow-delay="0.3s" id="contact">
+      <div class="container-fluid">
+          <div class="container">
+              <div class="footer-info">
+                  <h3>Kathmandu, Nepal</h3>
+                  <div class="footer-menu">
+                      <p>+977 9861083423</p>
+                      <p>createnepal75@gmail.com</p>
+                  </div>
+                  <div class="footer-social">
+                      <a href="https://twitter.com/Ujjwol75"><i class="fab fa-twitter"></i></a>
+                      <a href="https://www.facebook.com/ujjwol.neupane.92"><i class="fab fa-facebook-f"></i></a>
+                      <a href="https://www.youtube.com/channel/UCg33cyT1cBZZPDdXx3pa9_A"><i class="fab fa-youtube"></i></a>
+                      <a href="https://www.instagram.com/ujjwol76/"><i class="fab fa-instagram"></i></a>
+                      <a href="https://www.linkedin.com/in/ujjwol-neupane-0a243017b"><i class="fab fa-linkedin-in"></i></a>
+                  </div>
+              </div>
+          </div>
+          <div class="container copyright">
+              <p>All Right Reserved | Designed By<a href="">CreateNepal</a></p>
+          </div>
+      </div>
+  </div>
+  <!-- Footer End -->
+  
 {% endblock passwordchangedone %}
 

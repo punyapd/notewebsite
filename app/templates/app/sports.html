@@ -10,11 +10,11 @@
             <!-- Left -->
             <div class="col-md-7">
                 <div class="card mb-3">
-                  <img src="{{last_sports.image.url}}" class="card-img-top" alt="{{last_sports.title}}">
+                  <img src="{{articles.urlToImage}}" class="card-img-top" alt="{{articles.title}}">
                   <div class="card-body">
-                    <h5 class="card-title">{{last_sports.title}}</h5>
+                    <h5 class="card-title">{{articles.title}}</h5>
                     <hr/>
-                    <p class="card-text"><a href="{% url 'sports_detail' last_sports.id %}" class="btn btn-sm btn-outline-danger" style="border-radius: 20px 0 20px 20px; background-color: rgb(233,86,83); color: white;">Read Full</a></p>
+                    <p class="card-text"><a href="" class="btn btn-sm btn-outline-danger" style="border-radius: 20px 0 20px 20px; background-color: rgb(233,86,83); color: white;">Read Full</a></p>
                   </div>
                 </div>
             </div>
@@ -24,15 +24,15 @@
                 <!-- News Box -->
                 <div class="card">
                   <div class="row no-gutters">
-                    {% for lf in last_four %}
+                    {% for lf in articles %}
 
                     <div class="col-md-4">
-                    <img src="{{lf.image.url}}" class="card-img-top" alt="{{lf.title}}">
+                    <img src="{{lf.urlToImage}}" class="card-img-top" alt="{{lf.title}}">
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">
                         <h5 class="card-title">{{lf.title}}</h5>
-                        <p class="card-text"><a href="{% url 'sports_detail' lf.id %}" class="btn btn-sm btn-outline-danger" style="border-radius:20px 0px 20px 20px; background-color: rgb(233,86,83); color: white;">Read Full</a></p>
+                        <p class="card-text"><a href="{{lf.url}}" class="btn btn-sm btn-outline-danger" style="border-radius:20px 0px 20px 20px; background-color: rgb(233,86,83); color: white;">Read Full</a></p>
                       </div>
                     </div>
                                           
@@ -46,19 +46,19 @@
         </div>
         <hr>
     
-	<h1 class="border-bottom pb-1 text-center" 
-    style="color: rgb(233,86,83);font-weight: bold;">All Sports News <i class="fa fa-check-square"></i></h1>
+        <h1 class="border-bottom pb-1 text-center mt-4 pb-4" 
+    style="color: rgb(233,86,83);font-weight: bold;">All News <i class="fa fa-check-square"></i></h1>
 	<div class="row my-4">
         
 			<!-- News box -->
-      {% for sp in sports %}
+      {% for sp in articles2 %}
 			<div class="col-md-3">
 				<div class="card mb-3 shadow">
-                <img src="{{sp.image.url}}" class="card-img-top" alt="{{sp.title}}">
+                <img src="{{sp.urlToImage}}" class="card-img-top" alt="{{sp.title}}">
 				<div class="card-body">
 					<h5 class="card-title">{{sp.title}}</h5>
 					<hr/>
-					<p class="card-text"><a href="{% url 'sports_detail' sp.id %}" class="btn btn-sm btn-outline-danger" style="border-radius:20px 0px 20px 20px; background-color: rgb(233,86,83); color: white;">Read Full</a></p>
+					<p class="card-text"><a href="{{sp.url}}" class="btn btn-sm btn-outline-danger" style="border-radius:20px 0px 20px 20px; background-color: rgb(233,86,83); color: white;">Read Full</a></p>
 				</div>
 				</div>
 			</div>      

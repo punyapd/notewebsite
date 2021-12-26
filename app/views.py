@@ -6,6 +6,9 @@ from django import forms
 from django.utils.translation import gettext, gettext_lazy as _
 from .forms import CustomerRegistrationForm, CustomerProfileForm
 from .models import CATEGORY, Course, News, Semester, Subject, TuModelQuestions, UnitwiseQuestions, RefrencedBooks, Customers
+import requests
+
+API_KEY = '1099d3305d5c43f0ba9706b17dd1fe1c'
 
 # Create your views here.
 def home(request):
@@ -55,8 +58,19 @@ def refrenced_books(request, id):
 
 # =============TECH NEWS================
 def tech_news(request):
-    tech = News.objects.filter(category='Tech_news')
-    return render(request, 'app/tech-news.html', {'tech_news':tech})
+    # =====My database=========
+    # tech = News.objects.filter(category='Tech_news')
+    # category = request.GET.get('category')
+    # return render(request, 'app/tech-news.html', {'tech_news':tech})
+    #========API===========
+    url = f'https://newsapi.org/v2/top-headlines?language=en&category=technology&apiKey={API_KEY}'
+    response = requests.get(url)
+    data = response.json()
+    articles = data['articles']
+    context = {
+        'articles' : articles
+    }
+    return render(request, 'app/tech-news.html', context)
 
 def tech_detail(request, id):
     tech = News.objects.get(id=id)
@@ -64,10 +78,24 @@ def tech_detail(request, id):
     return render(request, 'app/tech_detail.html', {'tech':tech, 'last_three':last_three})
 
 def sports(request):
-    sports = News.objects.filter(category='Sports')
-    last_four_sports = News.objects.filter(category='Sports').order_by('-id')[:10]
-    last_sports = News.objects.last()
-    return render(request, 'app/sports.html', {'sports':sports, 'last_four':last_four_sports, 'last_sports':last_sports})
+    # sports = News.objects.filter(category='Sports')
+    # last_four_sports = News.objects.filter(category='Sports').order_by('-id')[:10]
+    # last_sports = News.objects.last()
+    # return render(request, 'app/sports.html', {'sports':sports, 'last_four':last_four_sports, 'last_sports':last_sports})
+    url = f'https://newsapi.org/v2/top-headlines?language=en&category=sports&apiKey={API_KEY}'
+    url2 = f'https://newsapi.org/v2/top-headlines?language=en&apiKey={API_KEY}'
+    response = requests.get(url)
+    response2 = requests.get(url2)
+    data = response.json()
+    data2 = response2.json()
+    articles = data['articles']
+    articles2 = data2['articles']
+    context = {
+        'articles' : articles,
+        'articles2' : articles2
+    }
+    return render(request, 'app/sports.html', context)
+
 
 def sports_detail(request,id):
     sport = News.objects.get(id=id)
