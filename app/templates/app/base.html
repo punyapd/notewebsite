@@ -48,7 +48,7 @@
                       Courses
                     </a>
                     <ul class="submenu dropdown-menu">
-                      <li><a href="" class="dropdown-item">Bsc.Csit</a></li>
+                      <li><a href="#" class="dropdown-item">Bsc.Csit</a></li>
                       <li><a href="#" class="dropdown-item">BCA</a></li>
                       <li><a href="#" class="dropdown-item">BIT</a></li>
 
@@ -90,7 +90,7 @@
             </ul>
 
             <div class="logo">
-                <img src="{% static "app/image/logo.png" %}" alt="">
+                <img src="{% static 'app/image/logo.png' %}" alt="">
 
             </div>
 
@@ -106,7 +106,7 @@
                     Hi! {{request.user.username|capfirst}}
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="profileDropdown">
-                    <li><a class="dropdown-item" href="">Profile</a></li>
+                    <li><a class="dropdown-item" href="{% url 'home' %}">Profile</a></li>
                     <li><a class="dropdown-item" href="{% url 'passwordchange' %}">Change Password</a></li>
                     <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
                     
@@ -114,11 +114,11 @@
                 </li>
                 {% else %}
                 <li class="nav-item mx-2">
-                 <a href="{% url 'login' %}" class="nav-link text-white">Login</a>
+                 <a href="{% url 'login' %}" class="nav-link text-white">Login<i class="fas fa-sign-in-alt"></i></a>
                 </li>
-                <li class="nav-item mx-2">
+                <!-- <li class="nav-item mx-2">
                  <a href="{% url 'customerregistration' %}" class="nav-link text-white">SignUp</a>
-                </li>
+                </li> -->
                 {% endif %}
               </ul>
           </div>
